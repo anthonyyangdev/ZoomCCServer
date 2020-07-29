@@ -11,6 +11,7 @@ async function prepareDb() {
     let collection;
     let db;
     const uri = process.env.PROD_MONGODB || 'mongodb://localhost:27017/'
+    console.log(true, uri, true);
     const client = await mongodb.MongoClient.connect(uri,{
         useUnifiedTopology: true,
         useNewUrlParser: true
