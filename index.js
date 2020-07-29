@@ -73,9 +73,10 @@ async function prepareDb() {
         }
     });
 
-    app.listen(8080, () => {
+    const port = process.env.PORT || 8080;
+    app.listen(port, () => {
         console.log(true);
-        console.log("Listening on port 8080");
+        console.log("Listening on port " + port);
     }).on('close', (err) => {
         db != null && db.close();
     })
