@@ -10,7 +10,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 async function prepareDb() {
     let collection;
     let db;
-    const uri = process.env.MONGODB_URI || 'mongodb://localhost:27017/'
+    const uri = process.env.PROD_MONGODB || 'mongodb://localhost:27017/'
     const client = await mongodb.MongoClient.connect(uri,{
         useUnifiedTopology: true,
         useNewUrlParser: true
