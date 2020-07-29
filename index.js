@@ -29,6 +29,10 @@ async function prepareDb() {
         return;
     }
 
+    app.get('/', (req, res) => {
+        res.send({message: "Connection works"});
+    });
+
     app.get('/session/:id', async (req, res) => {
         const id = req.params.id;
         const doc = await collection.findOneAndUpdate({
