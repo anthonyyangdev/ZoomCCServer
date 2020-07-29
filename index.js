@@ -35,18 +35,25 @@ async function prepareDb() {
     });
 
     app.get('/session/:id', async (req, res) => {
-        const id = req.params.id;
-        const doc = await collection.findOneAndUpdate({
-            _id: new ObjectId(id)
-        }, {
-            $inc: {
-                seq: 1
-            }
-        });
-        const value = doc.value;
-        return res.send({
-            url: `${value.url}&seq=${value.seq}&lang=${value.lang}`
-        });
+        try {
+            const id = req.params.id;
+            const doc = await collection.findOneAndUpdate({
+                _id: new ObjectId(id)
+            }, {
+                $inc: {
+                    seq: 1
+                }
+            });
+            const value = doc.value;
+            return res.send({
+                url: `${value.url}&seq=${value.seq}&lang=${value.lang}`
+            });
+        } catch (e) {
+            return res.send({
+                message: "Error",
+                error: e
+            });
+        }
     });
 
     app.post('/session/create', async (req, res) => {
