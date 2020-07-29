@@ -19,9 +19,9 @@
     "mongoose": "^5.9.26",
     "nodemon": "^2.0.4",
     "sonus": "^1.0.3",
-    "speech-to-text": "^2.9.1"
+    "speech-to-text": "^2.9.1",
+    "mongodb": "^3.5.9"
   },
   "devDependencies": {
-    "mongodb": "^3.5.9"
   }
 }
