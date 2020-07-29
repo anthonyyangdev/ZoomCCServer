@@ -31,7 +31,7 @@ async function prepareDb() {
     }
 
     app.get('/', (req, res) => {
-        res.send({message: "Connection works"});
+        return res.send({message: "Connection works"});
     });
 
     app.get('/session/:id', async (req, res) => {
